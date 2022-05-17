@@ -28,6 +28,7 @@ class CityListAdapter(private val onItemClicked: (info: CityWeatherInfo) -> Unit
             with(viewBinding) {
                 cityNameTextView.text = item.cityName
                 weatherTextView.text = item.weather
+                temperatureTextView.text = "${item.temperature} C"
             }
         }
     }

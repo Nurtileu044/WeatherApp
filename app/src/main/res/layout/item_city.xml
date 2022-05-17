@@ -29,6 +29,17 @@
         app:layout_constraintTop_toBottomOf="@id/cityNameTextView"
         tools:text="Weather" />
 
+    <TextView
+        android:id="@+id/temperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/weatherTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cityNameTextView"
+        tools:text="19 C" />
+
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"

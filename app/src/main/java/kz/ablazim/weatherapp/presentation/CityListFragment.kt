@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
 import kz.ablazim.weatherapp.R
 import kz.ablazim.weatherapp.databinding.FragmentCityListBinding
 import kz.ablazim.weatherapp.extensions.observeNotNull
@@ -30,6 +31,7 @@ class CityListFragment : Fragment(R.layout.fragment_city_list), NewCityDialogCal
                 true
             }
             citiesRecyclerView.adapter = cityListAdapter
+            citiesRecyclerView.itemAnimator = DefaultItemAnimator()
 
             viewModel.progressLoading.observeNotNull(viewLifecycleOwner) { isLoading ->
                 progressStateView.isVisible = isLoading

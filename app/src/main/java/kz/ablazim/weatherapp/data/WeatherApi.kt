@@ -17,7 +17,11 @@ class WeatherApi(private val service: WeatherService) : CityWeatherRemoteGateway
             long = longitude,
             appId = API_KEY
         )
-        return CityWeatherInfo(cityName = weather.name, weather = weather.sys.country)
+        return CityWeatherInfo(
+            cityName = weather.name,
+            weather = weather.weather[0].main,
+            temperature = (weather.main.temp - 272.15).toInt().toString()
+        )
     }
 
     override suspend fun getLocationByName(
