@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.customUI
+package kz.ablazim.weatherapp.customui
 
 import android.content.Context
 import android.util.AttributeSet

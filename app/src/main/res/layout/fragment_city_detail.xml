@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/windSpeedTextView"
         tools:listitem="@layout/item_city_weather_detail" />
 
-    <kz.ablazim.weatherapp.customUI.ProgressStateView
+    <kz.ablazim.weatherapp.customui.ProgressStateView
         android:id="@+id/progressStateView"
         android:layout_width="0dp"
         android:layout_height="0dp"

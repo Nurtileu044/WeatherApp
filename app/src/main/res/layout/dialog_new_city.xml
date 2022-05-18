@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toStartOf="@+id/addButton"
         app:layout_constraintTop_toTopOf="@+id/addButton" />
 
-    <kz.ablazim.weatherapp.customUI.ProgressStateView
+    <kz.ablazim.weatherapp.customui.ProgressStateView
         android:id="@+id/progressStateView"
         android:layout_width="0dp"
         android:layout_height="0dp"
