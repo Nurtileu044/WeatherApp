@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.addNewCity
+package kz.ablazim.weatherapp.presentation.addnewcity
 
 import android.os.Bundle
 import android.view.View

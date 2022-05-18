@@ -17,7 +17,7 @@ class WeatherApp : Application() {
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
         startKoin {
-            val androidContext = androidContext(this@WeatherApp)
+            androidContext(this@WeatherApp)
             modules(
                 CommonModule.create(),
                 DataModule.create(),

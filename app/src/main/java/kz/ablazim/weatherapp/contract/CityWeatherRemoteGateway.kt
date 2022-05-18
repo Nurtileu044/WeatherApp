@@ -3,8 +3,8 @@ package kz.ablazim.weatherapp.contract
 import kz.ablazim.weatherapp.base.model.CityWeatherDaysInfo
 import kz.ablazim.weatherapp.base.model.CityWeatherInfo
 import kz.ablazim.weatherapp.base.model.PlaceInfo
-import kz.ablazim.weatherapp.data.API_KEY
-import kz.ablazim.weatherapp.data.LIMIT
+import kz.ablazim.weatherapp.data.api.API_KEY
+import kz.ablazim.weatherapp.data.api.LIMIT
 
 interface CityWeatherRemoteGateway {
     suspend fun getCityNameByLocation(longitude: String, latitude: String): CityWeatherInfo

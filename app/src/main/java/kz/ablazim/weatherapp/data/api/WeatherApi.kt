@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.data
+package kz.ablazim.weatherapp.data.api
 
 import kz.ablazim.weatherapp.base.BaseConverter
 import kz.ablazim.weatherapp.base.model.CityWeatherDaysInfo
@@ -23,7 +23,7 @@ class WeatherApi(private val service: WeatherService) : CityWeatherRemoteGateway
         return CityWeatherInfo(
             cityName = weather.name,
             weatherDescp = weather.weather[0].main,
-            temperature = BaseConverter.fromKelvinToCelcius(weather.main.temp),
+            temperature = BaseConverter.fromKelvinToCelsius(weather.main.temp),
             latitude = weather.coord.lat,
             longitude = weather.coord.lon,
             feelsLike = weather.main.feelsLike.toString(),

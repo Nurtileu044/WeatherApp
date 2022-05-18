@@ -17,11 +17,6 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 
     open fun getItem(position: Int): T = data[position]
 
-    fun clear() {
-        data.clear()
-        notifyDataSetChanged()
-    }
-
     open fun setItems(items: List<T>) {
         data.clear()
         data.addAll(items)

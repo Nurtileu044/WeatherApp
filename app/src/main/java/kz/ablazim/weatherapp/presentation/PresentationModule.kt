@@ -1,7 +1,8 @@
 package kz.ablazim.weatherapp.presentation
 
 import kz.ablazim.weatherapp.di.InjectionModule
-import kz.ablazim.weatherapp.presentation.cityDetail.CityDetailViewModel
+import kz.ablazim.weatherapp.presentation.citydetail.CityDetailViewModel
+import kz.ablazim.weatherapp.presentation.citylist.CityListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

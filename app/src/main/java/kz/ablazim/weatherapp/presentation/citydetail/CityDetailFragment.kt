@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.cityDetail
+package kz.ablazim.weatherapp.presentation.citydetail
 
 import android.os.Bundle
 import android.view.View
@@ -82,12 +82,12 @@ class CityDetailFragment : Fragment(R.layout.fragment_city_detail) {
             temperatureDescriptionTextView.text = tempDesc
             feelsLikeTextView.text = getString(
                 R.string.feels_like,
-                BaseConverter.fromKelvinToCelcius(feelsLike.toDouble())
+                BaseConverter.fromKelvinToCelsius(feelsLike.toDouble())
             )
             maxTemperatureTextView.text =
-                getString(R.string.max_temp, BaseConverter.fromKelvinToCelcius(maxTemp.toDouble()))
+                getString(R.string.max_temp, BaseConverter.fromKelvinToCelsius(maxTemp.toDouble()))
             minTemperatureTextView.text =
-                getString(R.string.min_temp, BaseConverter.fromKelvinToCelcius(minTemp.toDouble()))
+                getString(R.string.min_temp, BaseConverter.fromKelvinToCelsius(minTemp.toDouble()))
             windSpeedTextView.text = getString(R.string.wind_speed, windSpeed)
 
             sevenDayWeatherRecyclerView.layoutManager =

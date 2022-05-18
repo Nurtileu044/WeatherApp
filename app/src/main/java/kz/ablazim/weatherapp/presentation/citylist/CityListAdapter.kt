@@ -1,7 +1,8 @@
-package kz.ablazim.weatherapp.presentation
+package kz.ablazim.weatherapp.presentation.citylist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import kz.ablazim.weatherapp.R
 import kz.ablazim.weatherapp.base.BaseAdapter
 import kz.ablazim.weatherapp.base.BaseViewHolder
 import kz.ablazim.weatherapp.base.model.CityWeatherInfo
@@ -28,7 +29,8 @@ class CityListAdapter(private val onItemClicked: (info: CityWeatherInfo) -> Unit
             with(viewBinding) {
                 cityNameTextView.text = item.cityName
                 weatherTextView.text = item.weatherDescp
-                temperatureTextView.text = "${item.temperature} C"
+                temperatureTextView.text =
+                    itemView.context.getString(R.string.temperature_C, item.temperature)
             }
         }
     }

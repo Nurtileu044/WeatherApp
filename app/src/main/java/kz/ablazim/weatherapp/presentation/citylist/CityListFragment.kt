@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation
+package kz.ablazim.weatherapp.presentation.citylist
 
 import android.os.Bundle
 import android.view.View
@@ -9,9 +9,9 @@ import kz.ablazim.weatherapp.R
 import kz.ablazim.weatherapp.databinding.FragmentCityListBinding
 import kz.ablazim.weatherapp.extensions.observeNotNull
 import kz.ablazim.weatherapp.extensions.replaceFragment
-import kz.ablazim.weatherapp.presentation.addNewCity.NewCityDialog
-import kz.ablazim.weatherapp.presentation.addNewCity.NewCityDialogCallback
-import kz.ablazim.weatherapp.presentation.cityDetail.CityDetailFragment
+import kz.ablazim.weatherapp.presentation.addnewcity.NewCityDialog
+import kz.ablazim.weatherapp.presentation.addnewcity.NewCityDialogCallback
+import kz.ablazim.weatherapp.presentation.citydetail.CityDetailFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityListFragment : Fragment(R.layout.fragment_city_list), NewCityDialogCallback {

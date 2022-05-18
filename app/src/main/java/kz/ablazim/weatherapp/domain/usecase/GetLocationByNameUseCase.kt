@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.domain
+package kz.ablazim.weatherapp.domain.usecase
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

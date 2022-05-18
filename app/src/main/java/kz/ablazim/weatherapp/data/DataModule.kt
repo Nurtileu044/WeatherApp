@@ -1,6 +1,8 @@
 package kz.ablazim.weatherapp.data
 
 import kz.ablazim.weatherapp.contract.CityWeatherRemoteGateway
+import kz.ablazim.weatherapp.data.api.WeatherApi
+import kz.ablazim.weatherapp.data.api.WeatherService
 import kz.ablazim.weatherapp.di.InjectionModule
 import org.koin.core.module.Module
 import org.koin.dsl.module

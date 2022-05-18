@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.data
+package kz.ablazim.weatherapp.data.api
 
 import kz.ablazim.weatherapp.base.model.CityWeatherDaysInfo
 import kz.ablazim.weatherapp.base.model.PlaceInfo

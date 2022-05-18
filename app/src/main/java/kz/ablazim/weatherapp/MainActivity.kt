@@ -3,8 +3,8 @@ package kz.ablazim.weatherapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kz.ablazim.weatherapp.databinding.ActivityMainBinding
-import kz.ablazim.weatherapp.presentation.CityListFragment
 import kz.ablazim.weatherapp.extensions.replaceFragment
+import kz.ablazim.weatherapp.presentation.citylist.CityListFragment
 
 class MainActivity : AppCompatActivity() {
 

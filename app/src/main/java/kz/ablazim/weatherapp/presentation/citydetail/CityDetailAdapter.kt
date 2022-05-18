@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.cityDetail
+package kz.ablazim.weatherapp.presentation.citydetail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,11 +33,11 @@ class CityDetailAdapter : BaseAdapter<WeatherData>() {
                 )
                 dayTemperatureTextView.text = itemView.context.getString(
                     R.string.day_temperature,
-                    BaseConverter.fromKelvinToCelcius(item.dayTemp)
+                    BaseConverter.fromKelvinToCelsius(item.dayTemp)
                 )
                 nightTemperatureTextView.text = itemView.context.getString(
                     R.string.night_temperature,
-                    BaseConverter.fromKelvinToCelcius(item.nightTemp)
+                    BaseConverter.fromKelvinToCelsius(item.nightTemp)
                 )
             }
         }

@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.domain
+package kz.ablazim.weatherapp.domain.usecase
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -6,8 +6,8 @@ import kz.ablazim.weatherapp.base.UseCase
 import kz.ablazim.weatherapp.base.model.WeatherData
 import kz.ablazim.weatherapp.contract.CityWeatherRemoteGateway
 
-class GetWeatherForWeek(private val gateway: CityWeatherRemoteGateway) :
-    UseCase<GetWeatherForWeek.Param, List<WeatherData>>() {
+class GetWeatherForWeekUseCase(private val gateway: CityWeatherRemoteGateway) :
+    UseCase<GetWeatherForWeekUseCase.Param, List<WeatherData>>() {
 
     override val dispatcher: CoroutineDispatcher = Dispatchers.IO
 

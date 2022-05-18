@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation
+package kz.ablazim.weatherapp.presentation.citylist
 
 import android.view.MenuItem
 import androidx.lifecycle.LiveData
@@ -8,8 +8,8 @@ import kz.ablazim.weatherapp.base.Action
 import kz.ablazim.weatherapp.base.BaseViewModel
 import kz.ablazim.weatherapp.base.SingleLiveEvent
 import kz.ablazim.weatherapp.base.model.CityWeatherInfo
-import kz.ablazim.weatherapp.domain.GetCityWeatherByLocationUseCase
-import kz.ablazim.weatherapp.domain.GetLocationByNameUseCase
+import kz.ablazim.weatherapp.domain.usecase.GetCityWeatherByLocationUseCase
+import kz.ablazim.weatherapp.domain.usecase.GetLocationByNameUseCase
 import timber.log.Timber
 
 private const val ALMATY = "Almaty"
@@ -33,7 +33,8 @@ class CityListViewModel(
             start = { _progressLoading.value = true },
             finish = { _progressLoading.value = false },
             body = {
-                val almatyLocation = getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = ALMATY))
+                val almatyLocation =
+                    getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = ALMATY))
                 val nurSultanLocation =
                     getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = NUR_SULTAN))
 
@@ -73,7 +74,8 @@ class CityListViewModel(
             start = { _progressLoading.value = true },
             finish = { _progressLoading.value = false },
             body = {
-                val cityLocation = getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = cityName))
+                val cityLocation =
+                    getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = cityName))
                 val cityWeatherInfo = getCityWeatherByLocationUseCase(
                     GetCityWeatherByLocationUseCase.Param(
                         longitude = cityLocation.lon,
