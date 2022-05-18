@@ -6,7 +6,8 @@ import org.koin.dsl.module
 
 object DomainModule : InjectionModule {
     override fun create(): Module = module {
-        single { GetLocationByName(get()) }
+        single { GetLocationByNameUseCase(get()) }
         single { GetCityWeatherByLocationUseCase(get()) }
+        single { GetWeatherForWeek(get()) }
     }
 }

@@ -6,8 +6,8 @@ import kz.ablazim.weatherapp.base.UseCase
 import kz.ablazim.weatherapp.base.model.PlaceInfo
 import kz.ablazim.weatherapp.contract.CityWeatherRemoteGateway
 
-class GetLocationByName(private val cityWeatherRemoteGateway: CityWeatherRemoteGateway) :
-    UseCase<GetLocationByName.Param, PlaceInfo>() {
+class GetLocationByNameUseCase(private val cityWeatherRemoteGateway: CityWeatherRemoteGateway) :
+    UseCase<GetLocationByNameUseCase.Param, PlaceInfo>() {
 
     override val dispatcher: CoroutineDispatcher = Dispatchers.IO
 

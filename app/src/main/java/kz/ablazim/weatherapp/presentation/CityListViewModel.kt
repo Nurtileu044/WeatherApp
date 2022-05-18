@@ -9,14 +9,14 @@ import kz.ablazim.weatherapp.base.BaseViewModel
 import kz.ablazim.weatherapp.base.SingleLiveEvent
 import kz.ablazim.weatherapp.base.model.CityWeatherInfo
 import kz.ablazim.weatherapp.domain.GetCityWeatherByLocationUseCase
-import kz.ablazim.weatherapp.domain.GetLocationByName
+import kz.ablazim.weatherapp.domain.GetLocationByNameUseCase
 import timber.log.Timber
 
 private const val ALMATY = "Almaty"
 private const val NUR_SULTAN = "Nur-Sultan"
 
 class CityListViewModel(
-    private val getLocationByName: GetLocationByName,
+    private val getLocationByNameUseCase: GetLocationByNameUseCase,
     private val getCityWeatherByLocationUseCase: GetCityWeatherByLocationUseCase
 ) : BaseViewModel() {
     private val _actions = SingleLiveEvent<CityListAction>()
@@ -33,9 +33,9 @@ class CityListViewModel(
             start = { _progressLoading.value = true },
             finish = { _progressLoading.value = false },
             body = {
-                val almatyLocation = getLocationByName(GetLocationByName.Param(cityName = ALMATY))
+                val almatyLocation = getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = ALMATY))
                 val nurSultanLocation =
-                    getLocationByName(GetLocationByName.Param(cityName = NUR_SULTAN))
+                    getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = NUR_SULTAN))
 
                 val initialCityList = mutableListOf(
                     getCityWeatherByLocationUseCase(
@@ -59,7 +59,7 @@ class CityListViewModel(
     }
 
     fun onItemClicked(info: CityWeatherInfo) {
-
+        _actions.value = CityListAction.ShowCityDetailScreen(info)
     }
 
     fun onMenuItemClicked(menuItem: MenuItem) {
@@ -73,7 +73,7 @@ class CityListViewModel(
             start = { _progressLoading.value = true },
             finish = { _progressLoading.value = false },
             body = {
-                val cityLocation = getLocationByName(GetLocationByName.Param(cityName = cityName))
+                val cityLocation = getLocationByNameUseCase(GetLocationByNameUseCase.Param(cityName = cityName))
                 val cityWeatherInfo = getCityWeatherByLocationUseCase(
                     GetCityWeatherByLocationUseCase.Param(
                         longitude = cityLocation.lon,
@@ -93,4 +93,5 @@ class CityListViewModel(
 
 sealed class CityListAction : Action {
     object AddNewCity : CityListAction()
+    data class ShowCityDetailScreen(val cityWeatherInfo: CityWeatherInfo) : CityListAction()
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/purple_500"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/white" />
+
+    <TextView
+        android:id="@+id/temperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:text="19 C" />
+
+    <TextView
+        android:id="@+id/temperatureDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/temperatureTextView"
+        app:layout_constraintTop_toBottomOf="@id/temperatureTextView"
+        tools:text="Clear" />
+
+    <TextView
+        android:id="@+id/feelsLikeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/temperatureDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/temperatureDescriptionTextView"
+        tools:text="Feels like: 120" />
+
+    <TextView
+        android:id="@+id/maxTemperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/feelsLikeTextView"
+        app:layout_constraintTop_toBottomOf="@id/feelsLikeTextView"
+        tools:text="Max Temperature: 23 C" />
+
+    <TextView
+        android:id="@+id/minTemperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/maxTemperatureTextView"
+        app:layout_constraintTop_toBottomOf="@id/maxTemperatureTextView"
+        tools:text="Min Temperature: 10 C" />
+
+    <TextView
+        android:id="@+id/windSpeedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/minTemperatureTextView"
+        app:layout_constraintTop_toBottomOf="@id/minTemperatureTextView"
+        tools:text="Wind Speed: 180 m/s" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sevenDayWeatherRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/windSpeedTextView"
+        app:layout_constraintTop_toBottomOf="@id/windSpeedTextView"
+        tools:listitem="@layout/item_city_weather_detail" />
+
+    <kz.ablazim.weatherapp.customUI.ProgressStateView
+        android:id="@+id/progressStateView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/please_wait" />
+</androidx.constraintlayout.widget.ConstraintLayout>

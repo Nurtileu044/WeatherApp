@@ -1,5 +1,6 @@
 package kz.ablazim.weatherapp.data
 
+import kz.ablazim.weatherapp.base.model.CityWeatherDaysInfo
 import kz.ablazim.weatherapp.base.model.PlaceInfo
 import kz.ablazim.weatherapp.base.model.WeatherResponse
 import retrofit2.http.GET
@@ -20,4 +21,12 @@ interface WeatherService {
         @Query("limit") limit: String,
         @Query("appid") appId: String
     ): List<PlaceInfo>
+
+    @GET("data/2.5/onecall")
+    suspend fun getWeatherForPeriod(
+        @Query("lat") lat: String,
+        @Query("lon") lon: String,
+        @Query("exclude") exclude: String,
+        @Query("appid") appId: String
+    ): CityWeatherDaysInfo
 }

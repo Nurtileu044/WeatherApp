@@ -1,11 +1,9 @@
 package kz.ablazim.weatherapp.base.model
 
-data class CityWeatherInfo(
+data class CityDetailWeather(
     val cityName: String,
-    val weatherDescp: String,
     val temperature: String,
-    val latitude: Double,
-    val longitude: Double,
+    val description: String,
     val feelsLike: String,
     val maxTemp: String,
     val minTemp: String,

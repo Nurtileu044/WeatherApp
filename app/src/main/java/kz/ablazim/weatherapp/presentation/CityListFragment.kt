@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import kz.ablazim.weatherapp.R
 import kz.ablazim.weatherapp.databinding.FragmentCityListBinding
 import kz.ablazim.weatherapp.extensions.observeNotNull
+import kz.ablazim.weatherapp.extensions.replaceFragment
 import kz.ablazim.weatherapp.presentation.addNewCity.NewCityDialog
 import kz.ablazim.weatherapp.presentation.addNewCity.NewCityDialogCallback
+import kz.ablazim.weatherapp.presentation.cityDetail.CityDetailFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityListFragment : Fragment(R.layout.fragment_city_list), NewCityDialogCallback {
@@ -43,7 +45,20 @@ class CityListFragment : Fragment(R.layout.fragment_city_list), NewCityDialogCal
 
             viewModel.actions.observeNotNull(viewLifecycleOwner) { action ->
                 when (action) {
-                    CityListAction.AddNewCity -> NewCityDialog.show(childFragmentManager)
+                    is CityListAction.AddNewCity -> NewCityDialog.show(childFragmentManager)
+                    is CityListAction.ShowCityDetailScreen -> replaceFragment(
+                        CityDetailFragment.create(
+                            latitude = action.cityWeatherInfo.latitude.toString(),
+                            longitude = action.cityWeatherInfo.longitude.toString(),
+                            cityName = action.cityWeatherInfo.cityName,
+                            temp = action.cityWeatherInfo.temperature,
+                            tempDescription = action.cityWeatherInfo.weatherDescp,
+                            feelsLike = action.cityWeatherInfo.feelsLike,
+                            maxTemp = action.cityWeatherInfo.maxTemp,
+                            minTemp = action.cityWeatherInfo.minTemp,
+                            windSpeed = action.cityWeatherInfo.windSpeed
+                        )
+                    )
                 }
             }
         }

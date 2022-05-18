@@ -6,4 +6,13 @@
     <string name="cityName">City Name</string>
     <string name="cancel">Cancel</string>
     <string name="add_new_city">Add New City</string>
+    <string name="city_weather_today">%s Today</string>
+    <string name="temperature_C">%s C</string>
+    <string name="feels_like">Feels like: %s C</string>
+    <string name="max_temp">Max Temperature: %s C</string>
+    <string name="min_temp">Min Temperature: %s C</string>
+    <string name="wind_speed">Wind Speed: %s m/s</string>
+    <string name="day_temperature">Day Temp: %s C</string>
+    <string name="night_temperature">Night Temp: %s C</string>
+    <string name="date">Time: %s</string>
 </resources>
