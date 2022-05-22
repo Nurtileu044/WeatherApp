@@ -6,13 +6,13 @@ import kz.ablazim.weatherapp.base.UseCase
 import kz.ablazim.weatherapp.base.model.WeatherData
 import kz.ablazim.weatherapp.contract.CityWeatherRemoteGateway
 
-class GetWeatherForWeekUseCase(private val gateway: CityWeatherRemoteGateway) :
-    UseCase<GetWeatherForWeekUseCase.Param, List<WeatherData>>() {
+class GetWeatherForPeriodUseCase(private val gateway: CityWeatherRemoteGateway) :
+    UseCase<GetWeatherForPeriodUseCase.Param, List<WeatherData>>() {
 
     override val dispatcher: CoroutineDispatcher = Dispatchers.IO
 
     override suspend fun execute(parameters: Param): List<WeatherData> {
-        val weatherInfoForWeek = gateway.getWeatherForWeekByLocation(
+        val weatherInfoForWeek = gateway.getWeatherForPeriodByLocation(
             longitude = parameters.longitude,
             latitude = parameters.latitude
         )

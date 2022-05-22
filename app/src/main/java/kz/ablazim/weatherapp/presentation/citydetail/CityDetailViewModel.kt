@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kz.ablazim.weatherapp.base.BaseViewModel
 import kz.ablazim.weatherapp.base.model.WeatherData
-import kz.ablazim.weatherapp.domain.usecase.GetWeatherForWeekUseCase
+import kz.ablazim.weatherapp.domain.usecase.GetWeatherForPeriodUseCase
 import timber.log.Timber
 
 class CityDetailViewModel(
     private val latitude: String,
     private val longitude: String,
-    private val getWeatherForWeekUseCase: GetWeatherForWeekUseCase
+    private val getWeatherForPeriodUseCase: GetWeatherForPeriodUseCase
 ) : BaseViewModel() {
     private val _progressLoading = MutableLiveData(false)
     val progressLoading: LiveData<Boolean> = _progressLoading
@@ -24,8 +24,8 @@ class CityDetailViewModel(
             finish = { _progressLoading.value = false },
             body = {
                 _weatherList.postValue(
-                    getWeatherForWeekUseCase.invoke(
-                        GetWeatherForWeekUseCase.Param(
+                    getWeatherForPeriodUseCase.invoke(
+                        GetWeatherForPeriodUseCase.Param(
                             latitude = latitude,
                             longitude = longitude
                         )

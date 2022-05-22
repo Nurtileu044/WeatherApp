@@ -14,7 +14,7 @@ interface CityWeatherRemoteGateway {
         appId: String = API_KEY
     ): PlaceInfo
 
-    suspend fun getWeatherForWeekByLocation(
+    suspend fun getWeatherForPeriodByLocation(
         longitude: String,
         latitude: String
     ): CityWeatherDaysInfo

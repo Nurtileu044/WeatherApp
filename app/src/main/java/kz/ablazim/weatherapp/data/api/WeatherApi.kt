@@ -39,7 +39,7 @@ class WeatherApi(private val service: WeatherService) : CityWeatherRemoteGateway
         appId: String
     ): PlaceInfo = service.getLocationByName(cityName = cityName, limit = LIMIT, appId = API_KEY)[0]
 
-    override suspend fun getWeatherForWeekByLocation(
+    override suspend fun getWeatherForPeriodByLocation(
         longitude: String,
         latitude: String
     ): CityWeatherDaysInfo = service.getWeatherForPeriod(
