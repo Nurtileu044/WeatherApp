@@ -8,7 +8,7 @@ import kz.ablazim.weatherapp.R
 import kz.ablazim.weatherapp.databinding.DialogNewCityBinding
 import org.koin.ext.getFullName
 
-class NewCityDialog : AppCompatDialogFragment(R.layout.dialog_new_city) {
+class NewCityDialog private constructor() : AppCompatDialogFragment(R.layout.dialog_new_city) {
     companion object {
         fun show(manager: FragmentManager) =
             NewCityDialog().show(manager, NewCityDialog::class.getFullName())
