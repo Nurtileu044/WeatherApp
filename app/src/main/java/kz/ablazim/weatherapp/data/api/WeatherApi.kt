@@ -1,10 +1,10 @@
 package kz.ablazim.weatherapp.data.api
 
-import kz.ablazim.weatherapp.base.BaseConverter
 import kz.ablazim.weatherapp.base.model.CityWeatherDaysInfo
 import kz.ablazim.weatherapp.base.model.CityWeatherInfo
 import kz.ablazim.weatherapp.base.model.PlaceInfo
 import kz.ablazim.weatherapp.contract.CityWeatherRemoteGateway
+import kz.ablazim.weatherapp.data.WeatherConverter
 
 const val API_KEY = "91aad420520dfe8c74f218239f1cb064"
 const val LIMIT = "1"
@@ -20,17 +20,7 @@ class WeatherApi(private val service: WeatherService) : CityWeatherRemoteGateway
             long = longitude,
             appId = API_KEY
         )
-        return CityWeatherInfo(
-            cityName = weather.name,
-            weatherDescp = weather.weather[0].main,
-            temperature = BaseConverter.fromKelvinToCelsius(weather.main.temp),
-            latitude = weather.coord.lat,
-            longitude = weather.coord.lon,
-            feelsLike = weather.main.feelsLike.toString(),
-            maxTemp = weather.main.tempMax.toString(),
-            minTemp = weather.main.tempMin.toString(),
-            windSpeed = weather.wind.speed.toString()
-        )
+        return WeatherConverter.fromServer(weather)
     }
 
     override suspend fun getLocationByName(
