@@ -5,6 +5,9 @@
       <map>
         <entry key="../../../../layout/compose-model-1658309182430.xml" value="0.3108108108108108" />
         <entry key="../../../../layout/compose-model-1658310883286.xml" value="0.33" />
+        <entry key="../../../../layout/compose-model-1658372857796.xml" value="0.31165540540540543" />
+        <entry key="../../../../layout/compose-model-1658377982439.xml" value="0.33" />
+        <entry key="../../../../layout/compose-model-1658382536302.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable-v24/ic_add_plus.xml" value="0.1365" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable-v24/ic_back.xml" value="0.1365" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/view_progress_state.xml" value="0.1365" />
@@ -16,7 +19,9 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/item_city_weather_detail.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/view_progress_state.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/WeatherApp/app/src/main/res/menu/menu_city_list.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/drawable-v24/ic_add_plus.xml" value="0.1855" />
         <entry key="app/src/main/res/layout/fragment_city_list.xml" value="0.3421875" />
+        <entry key="app/src/main/res/menu/menu_city_list.xml" value="0.35625" />
       </map>
     </option>
   </component>
