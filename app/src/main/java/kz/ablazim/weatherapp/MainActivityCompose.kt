@@ -17,10 +17,13 @@ import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -55,9 +58,17 @@ class MainActivityCompose : AppCompatActivity() {
 
     @Composable
     fun MyApplication(cityList: List<WeatherInfo>) {
+        val shouldShowDialog = remember { mutableStateOf(false) }
+
+        if (shouldShowDialog.value) {
+            ShowDialog(setShowDialog = { showDialog ->
+                shouldShowDialog.value = showDialog
+            })
+        }
+
         Scaffold(topBar = {
             TopAppBar(title = { Text(stringResource(id = R.string.city_list)) }, actions = {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { shouldShowDialog.value = true }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_add_plus),
                         contentDescription = stringResource(id = R.string.add),
@@ -93,13 +104,15 @@ class MainActivityCompose : AppCompatActivity() {
                         .padding(start = 8.dp),
                     text = weatherInfo.cityName,
                     textAlign = TextAlign.Start,
-                    fontSize = 18.sp
+                    fontSize = 20.sp,
+                    style = typography.h6
                 )
 
                 Text(
                     modifier = Modifier.padding(start = 8.dp, bottom = 8.dp),
                     text = weatherInfo.weather,
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    style = typography.caption
                 )
             }
 
@@ -110,10 +123,19 @@ class MainActivityCompose : AppCompatActivity() {
                         .padding(end = 14.dp),
                     text = weatherInfo.celcius,
                     textAlign = TextAlign.End,
-                    fontSize = 18.sp
+                    fontSize = 20.sp
                 )
             }
         }
+    }
+
+    @Composable
+    fun ShowDialog(setShowDialog: (Boolean) -> Unit) {
+        NewCity(addedCityName = { cityName ->
+            // TODO: add functionality
+        }, showDialog = { shouldShow ->
+            setShowDialog.invoke(shouldShow)
+        })
     }
 
     @Preview(showSystemUi = true, showBackground = true)
