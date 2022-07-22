@@ -62,7 +62,7 @@ fun NewCity(value: String = "", addedCityName: (String) -> Unit, showDialog: (Bo
 
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                         TextButton(onClick = { showDialog.invoke(false) }) {
-                            Text("CANCEL", fontSize = 16.sp)
+                            Text(text = stringResource(id = R.string.cancel).uppercase(), fontSize = 16.sp)
                         }
                         TextButton(onClick = {
                             if (textField.value.isEmpty()) {
@@ -72,7 +72,7 @@ fun NewCity(value: String = "", addedCityName: (String) -> Unit, showDialog: (Bo
                             addedCityName.invoke(textField.value)
                             showDialog.invoke(false)
                         }) {
-                            Text("ADD", fontSize = 16.sp)
+                            Text(text = stringResource(id = R.string.add).uppercase(), fontSize = 16.sp)
                         }
                     }
                 }
