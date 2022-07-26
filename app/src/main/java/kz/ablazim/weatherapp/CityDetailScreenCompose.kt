@@ -67,7 +67,7 @@ fun CityDetail() {
 
             Text(text = "Wind Speed: 2.0 m/s", fontSize = 20.sp)
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(18.dp))
 
             LazyRow(modifier = Modifier.fillMaxWidth()) {
                 items(items = sampleList, itemContent = { WeatherItem(text = it) })
@@ -78,20 +78,36 @@ fun CityDetail() {
 
 @Composable
 fun WeatherItem(text: String) {
-    Row(modifier = Modifier.height(IntrinsicSize.Min)) {
-        Column {
-            Text(text = text, fontSize = 24.sp)
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(text = text, fontSize = 20.sp)
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(text = text, fontSize = 20.sp)
+    Column(modifier = Modifier.width(IntrinsicSize.Max)) {
+        Divider(
+            color = Color.Black, modifier = Modifier
+                .fillMaxWidth(),
+            thickness = 2.dp
+        )
+        Row(
+            modifier = Modifier
+                .height(IntrinsicSize.Min)
+        ) {
+            Column {
+                Text(text = text, fontSize = 24.sp)
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(text = text, fontSize = 20.sp)
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(text = text, fontSize = 20.sp)
+                Spacer(modifier = Modifier.height(10.dp))
+            }
+            Divider(
+                color = Color.Black,
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .padding(horizontal = 10.dp)
+                    .width(2.dp)
+            )
         }
         Divider(
-            color = Color.Black,
-            modifier = Modifier
-                .fillMaxHeight()
-                .padding(horizontal = 10.dp)
-                .width(2.dp)
+            color = Color.Black, modifier = Modifier
+                .fillMaxWidth(),
+            thickness = 2.dp
         )
     }
 }
