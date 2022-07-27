@@ -3,6 +3,7 @@ package kz.ablazim.weatherapp
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -33,6 +34,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import timber.log.Timber
 
 class MainActivityCompose : AppCompatActivity() {
 
@@ -59,6 +65,16 @@ class MainActivityCompose : AppCompatActivity() {
     @Composable
     fun MyApplication(cityList: List<WeatherInfo>) {
         val shouldShowDialog = remember { mutableStateOf(false) }
+        val navController = rememberNavController()
+
+        NavHost(navController = navController, startDestination = ScreenCompose.CityListScreen.route) {
+            composable(route = ScreenCompose.CityListScreen.route) {
+                MyApplication(cityList = cityList)
+            }
+            composable(route = ScreenCompose.CityDetailScreen.route) {
+                CityDetail()
+            }
+        }
 
         if (shouldShowDialog.value) {
             ShowDialog(setShowDialog = { showDialog ->
@@ -83,18 +99,22 @@ class MainActivityCompose : AppCompatActivity() {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(
                     items = cityList,
-                    itemContent = { WeatherItem(weatherInfo = it) }
+                    itemContent = { WeatherItem(weatherInfo = it, navController = navController) }
                 )
             }
         }
     }
 
     @Composable
-    fun WeatherItem(weatherInfo: WeatherInfo) {
+    fun WeatherItem(weatherInfo: WeatherInfo, navController: NavController) {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(IntrinsicSize.Min), elevation = 8.dp
+                .height(IntrinsicSize.Min)
+                .clickable {
+                Timber.tag("Hello").d("Card is clicked")
+                    navController.navigate(ScreenCompose.CityDetailScreen.route)
+                           }, elevation = 8.dp
         ) {
             Column {
                 Text(

@@ -70,14 +70,14 @@ fun CityDetail() {
             Spacer(modifier = Modifier.height(18.dp))
 
             LazyRow(modifier = Modifier.fillMaxWidth()) {
-                items(items = sampleList, itemContent = { WeatherItem(text = it) })
+                items(items = sampleList, itemContent = { WeatherListItem(text = it) })
             }
         }
     }
 }
 
 @Composable
-fun WeatherItem(text: String) {
+fun WeatherListItem(text: String) {
     Column(modifier = Modifier.width(IntrinsicSize.Max)) {
         Divider(
             color = Color.Black, modifier = Modifier
