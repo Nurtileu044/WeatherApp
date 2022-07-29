@@ -27,14 +27,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 val sampleList = listOf("Time: 10:41", "Time: 10:42", "Time: 10:43", "Time: 10:44", "Time: 10:45", "Time: 10:46")
 
 @Composable
-fun CityDetail() {
+fun CityDetail(navController: NavController) {
     Scaffold(topBar = {
         TopAppBar(title = { Text(stringResource(id = R.string.cityName)) }, navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = {
+                navController.navigate(ScreenCompose.CityListScreen.route) {
+                    launchSingleTop = true
+                }
+            }) {
                 Icon(painterResource(id = R.drawable.ic_back), "")
             }
         })
@@ -115,5 +121,5 @@ fun WeatherListItem(text: String) {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun CityDetailPreview() {
-    CityDetail()
+    CityDetail(navController = rememberNavController())
 }

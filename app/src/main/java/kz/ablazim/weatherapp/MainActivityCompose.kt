@@ -38,7 +38,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import timber.log.Timber
 
 class MainActivityCompose : AppCompatActivity() {
 
@@ -57,24 +56,23 @@ class MainActivityCompose : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                MyApplication(cityList = cityList)
+                val navController = rememberNavController()
+
+                NavHost(navController = navController, startDestination = ScreenCompose.CityListScreen.route) {
+                    composable(route = ScreenCompose.CityListScreen.route) {
+                        MyApplication(cityList = cityList, navController = navController)
+                    }
+                    composable(route = ScreenCompose.CityDetailScreen.route) {
+                        CityDetail(navController = navController)
+                    }
+                }
             }
         }
     }
 
     @Composable
-    fun MyApplication(cityList: List<WeatherInfo>) {
+    fun MyApplication(cityList: List<WeatherInfo>, navController: NavController) {
         val shouldShowDialog = remember { mutableStateOf(false) }
-        val navController = rememberNavController()
-
-        NavHost(navController = navController, startDestination = ScreenCompose.CityListScreen.route) {
-            composable(route = ScreenCompose.CityListScreen.route) {
-                MyApplication(cityList = cityList)
-            }
-            composable(route = ScreenCompose.CityDetailScreen.route) {
-                CityDetail()
-            }
-        }
 
         if (shouldShowDialog.value) {
             ShowDialog(setShowDialog = { showDialog ->
@@ -111,10 +109,7 @@ class MainActivityCompose : AppCompatActivity() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(IntrinsicSize.Min)
-                .clickable {
-                Timber.tag("Hello").d("Card is clicked")
-                    navController.navigate(ScreenCompose.CityDetailScreen.route)
-                           }, elevation = 8.dp
+                .clickable { navController.navigate(ScreenCompose.CityDetailScreen.route) }, elevation = 8.dp
         ) {
             Column {
                 Text(
@@ -161,7 +156,7 @@ class MainActivityCompose : AppCompatActivity() {
     @Preview(showSystemUi = true, showBackground = true)
     @Composable
     fun MyPreview() {
-        MyApplication(cityList)
+        MyApplication(cityList = cityList, navController = rememberNavController())
     }
 
     data class WeatherInfo(val cityName: String, val weather: String, val celcius: String)
