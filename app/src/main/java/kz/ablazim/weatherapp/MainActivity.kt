@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kz.ablazim.weatherapp.databinding.ActivityMainBinding
 import kz.ablazim.weatherapp.extensions.replaceFragment
-import kz.ablazim.weatherapp.presentation.citylist.CityListFragment
+import kz.ablazim.weatherapp.presentation.city_list.CityListFragment
 
 class MainActivity : AppCompatActivity() {
 

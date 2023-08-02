@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.citylist
+package kz.ablazim.weatherapp.presentation.city_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

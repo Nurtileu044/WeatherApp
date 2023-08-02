@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.citydetail
+package kz.ablazim.weatherapp.presentation.city_detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.citydetail
+package kz.ablazim.weatherapp.presentation.city_detail
 
 import android.os.Bundle
 import android.view.View
@@ -15,7 +15,6 @@ import kz.ablazim.weatherapp.utils.args
 import kz.ablazim.weatherapp.utils.withArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
-import timber.log.Timber
 
 private const val EXTRA_LAT = "EXTRA_LAT"
 private const val EXTRA_LON = "EXTRA_LON"
@@ -101,7 +100,6 @@ class CityDetailFragment : Fragment(R.layout.fragment_city_detail) {
         }
 
         viewModel.weatherList.observeNotNull(viewLifecycleOwner) { weatherList ->
-            Timber.tag("Hello").d("$weatherList")
             cityDetailAdapter.setItems(weatherList)
         }
     }

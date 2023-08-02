@@ -1,4 +1,4 @@
-package kz.ablazim.weatherapp.presentation.addnewcity
+package kz.ablazim.weatherapp.presentation.add_new_city
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import kz.ablazim.weatherapp.databinding.DialogNewCityBinding
 import org.koin.ext.getFullName
 
 class NewCityDialog private constructor() : AppCompatDialogFragment(R.layout.dialog_new_city) {
+
     companion object {
         fun show(manager: FragmentManager) =
             NewCityDialog().show(manager, NewCityDialog::class.getFullName())
